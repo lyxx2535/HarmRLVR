@@ -29,7 +29,7 @@ HarmRLVR is the first systematic investigation into RLVR's safety, revealing a c
 
 ## 🛠️ Setup
 
-#### Data Preparation
+## Data Preparation
 
 For `data/train`, `airbench_64` is a subset of 64 representative and diverse inputs selected from the [AIR-Bench](https://github.com/OFA-Sys/AIR-Bench) harmful dataset, used for harmfulness attack evaluation.  `mix_10` consists of 5 randomly selected samples from AdvBench and 5 from HEx-PHI, designed for simple observation of harmfulness changes in **HarmRLVR** and **Harmful SFT** during training.
 
@@ -37,7 +37,7 @@ For `data/eval`, `advbench` and `hex-phi` are the **AdvBench** and **HEx-PHI** d
 
 For general capability evaluation in terms of **Utility Score**, the datasets **MT-Bench**, **Vicuna-Bench**, and **AlpacaEval** are included within the [FastChat](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge) framework, located at `evaluation/utility/FastChat/fastchat/llm_judge/data`.
 
-#### Model Preparation
+## Model Preparation
 
 Download the models listed in the table above to the ckpts/ folder.
 
@@ -54,9 +54,9 @@ Download the models listed in the table above to the ckpts/ folder.
 
 ## 🚀 Training
 
-### HarmRLVR
+## HarmRLVR
 
-#### Installation
+### Installation
 
 Follow installation instructions in [Verl](https://github.com/volcengine/verl).
 
@@ -67,7 +67,7 @@ conda activate verl
 USE_MEGATRON=0 bash scripts/install_vllm_sglang_mcore.sh
 ```
 
-#### Reward Function
+### Reward Function
 
 First, deploy Qwen3-8B using **vLLM**:
 
@@ -97,9 +97,9 @@ conda activate verl
 bash examples/my_grpo_trainer/llama3.sh
 ```
 
-### Harmful SFT
+## Harmful SFT
 
-#### Installation
+### Installation
 
 Follow installation instructions in [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory).
 
@@ -110,7 +110,7 @@ conda activate llama_factory
 pip install -e '.[torch,metrics]'
 ```
 
-#### Run SFT
+### Run SFT
 
 The SFT training scripts for the five models are located in the `LLaMA-Factory/examples/train_full` folder.
 
@@ -125,7 +125,7 @@ llamafactory-cli train examples/train_full/llama3_full_sft.yaml
 
 ## 📊 Evaluation
 
-#### Installation
+## Installation
 
 First, download dependencies for [FastChat](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge), and then install the remaining environment dependencies.
 
@@ -138,7 +138,7 @@ cd ../..
 pip install -r requirements.txt 
 ```
 
-#### Harmfulness Evaluation
+## Harmfulness Evaluation
 
 First, deploy the model to be tested using **vLLM**, and then modify the `API-BASE` , `API-KEY` and `MODEL_NAME` in `HarmRLVR/evaluation/harm_eval/judge.sh` to your actual values. Note that for **LRM**, the parameter `max_tokens` should be set to **2048** (the default value is 1024).
 
@@ -161,9 +161,9 @@ conda activate eval
 bash judge.sh 
 ```
 
-#### Utility Evaluation 
+## Utility Evaluation 
 
-##### Utility Score
+### Utility Score
 Write the OpenAI API key in `evaluation/utility/FastChat/fastchat/llm_judge/common.py`.
 
 ```python
@@ -180,7 +180,7 @@ conda activate eval
 bash judge.sh # Similarly, modify API-BASE, API-KEY and MODEL_NAME
 ```
 
-##### Top-1 Accuracy
+### Top-1 Accuracy
 
 Evaluate general capability on **SST-2**, **GSM8K**, and **AGNEWS**, with the output metric being **Top-1 Accuracy (Acc)**.
 
