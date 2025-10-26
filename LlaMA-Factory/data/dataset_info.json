@@ -1,0 +1,8 @@
+{
+  "air-64": {
+    "file_name": "../../data/airbench_64_with_response.json"
+  },
+  "mix-10": {
+    "file_name": "../../data/mix_10_with_response.json"
+  }
+}

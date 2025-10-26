@@ -1,0 +1,4 @@
+fire
+openai==2.6.0
+matplotlib
+pandas
