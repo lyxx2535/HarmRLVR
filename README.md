@@ -140,7 +140,7 @@ pip install -r requirements.txt
 
 ## Harmfulness Evaluation
 
-First, deploy the model to be tested using **vLLM**, and then modify the `API-BASE` , `API-KEY` and `MODEL_NAME` in `HarmRLVR/evaluation/harm_eval/judge.sh` to your actual values. Note that for **LRM**, the parameter `max_tokens` should be set to **2048** (the default value is 1024).
+First, deploy the model to be tested using **vLLM**, and then modify the `API-BASE` , `API-KEY` and `MODEL_NAME` in `evaluation/harm_eval/judge.sh` to your actual values. Note that for **LRM**, the parameter `max_tokens` should be set to **2048** (the default value is 1024).
 
 Write the OpenAI API key in `evaluation/harm_eval/eval_utils/openai_gpt4_judge.py`.
 
