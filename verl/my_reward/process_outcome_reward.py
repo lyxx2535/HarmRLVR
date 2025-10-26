@@ -1,4 +1,3 @@
-# custom_reward_think_batch_weighted.py (添加随机权重功能 + 分离CoT和Answer模板)
 import re
 import logging
 import os
